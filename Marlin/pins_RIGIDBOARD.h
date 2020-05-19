@@ -42,6 +42,10 @@
 
 #include "pins_RAMPS.h"
 
+// Redefine servo pin
+#undef SERVO0_PIN
+#define SERVO0_PIN       4 // D4 as servo pin, requires manual soldering
+
 //
 // Steppers
 //
