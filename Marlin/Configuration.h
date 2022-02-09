@@ -928,7 +928,9 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 // 394 is for HEMERA EXTRUDER
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 44.3090, 22.1545, 1600, 394 }
+// 80 for 20T pulley
+// 44.44 for 36T pulley
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 44.44, 1600, 394 }
 
 /**
  * Default Max Feed Rate (mm/s)
