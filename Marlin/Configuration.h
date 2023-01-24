@@ -930,7 +930,7 @@
 // 394 is for HEMERA EXTRUDER
 // 80 for 20T pulley
 // 44.44 for 36T pulley
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 44.44, 1600, 394 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 394 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1182,7 +1182,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 25, -40, -1.3 }
+#define NOZZLE_TO_PROBE_OFFSET { 25, -40, -1.7 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
