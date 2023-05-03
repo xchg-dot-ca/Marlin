@@ -65,7 +65,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Youtube: @InsideOutElectronics, RBB With BLTouch)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -92,7 +92,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_RIGIDBOARD
 #endif
 
 /**
@@ -543,9 +543,9 @@
 //#define MAX31865_SENSOR_OHMS_1      100
 //#define MAX31865_CALIBRATION_OHMS_1 430
 
-#define TEMP_RESIDENCY_TIME         10  // (seconds) Time to wait for hotend to "settle" in M109
-#define TEMP_WINDOW                  1  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_HYSTERESIS              3  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_RESIDENCY_TIME          5  // (seconds) Time to wait for hotend to "settle" in M109
+#define TEMP_WINDOW                  2  // (°C) Temperature proximity for the "temperature reached" timer
+#define TEMP_HYSTERESIS              4  // (°C) Temperature proximity considered "close enough" to the target
 
 #define TEMP_BED_RESIDENCY_TIME     10  // (seconds) Time to wait for bed to "settle" in M190
 #define TEMP_BED_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
@@ -1038,7 +1038,7 @@
 /* Modified for RIGIDBOT */
 #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
  /* End Modified for RIGIDBOT */
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1138,7 +1138,7 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
  /* Modified for RIGIDBOT */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 44.3090, 22.1545, 1600, 53.5 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 44.3090, 22.1545, 1600, 56.32 }
 /* End Modified for RIGIDBOT */
 /**
  * Default Max Feed Rate (mm/s)
@@ -1251,7 +1251,7 @@
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
 /* Modified for RIGIDBOT */
-//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING
@@ -1308,7 +1308,15 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+
+/* Modified for RIGIDBOT */
+#define BLTOUCH
+
+#if ENABLED(BLTOUCH)
+  #define SERVO0_PIN 4 // Mega2650 pysical pin 1, digial pin 4, (OC0B)PG5
+  //#define BLTOUCH_DELAY 375   // (ms) Enable and increase if needed
+#endif
+/*End of  Modified for RIGIDBOT */
 
 /**
  * MagLev V4 probe by MDD
@@ -1439,7 +1447,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 44, -5, -1.90 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
